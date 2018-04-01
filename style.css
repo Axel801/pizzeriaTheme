@@ -1,0 +1,49 @@
+/*
+Theme Name: Tema Pizzería
+Theme URI:
+Author: Axel José Loupias
+Author URI:
+Description: Tema para pizzería desarrollado con Bootstrap 4
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: restaurant, mobile first, responsive, pizza
+Text Domain: lapizzeria
+*/
+
+.no-text-decoration:hover{
+  text-decoration: none;
+}
+
+
+
+
+
+/*-----Menu social-----*/
+ul#menu-social-menu{
+  list-style: none;
+}
+ul#menu-social-menu li a::before{
+font-family: 'FontAwesome';
+font-size: 30px;
+}
+ul#menu-social-menu li a[href*="facebook"]::before{
+	content: '\f09a';
+}
+
+ul#menu-social-menu li a[href*="twitter"]::before{
+	content: '\f099';
+}
+
+ul#menu-social-menu li a[href*="pinterest"]::before{
+	content: '\f231';
+}
+
+ul#menu-social-menu li a[href*="youtube"]::before{
+	content: '\f16a';
+}
+
+ul#menu-social-menu li a[href*="instagram"]::before{
+	content: '\f16d';
+}
+/*-----/Menu social-----*/
