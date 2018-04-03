@@ -14,7 +14,15 @@ Text Domain: lapizzeria
 .no-text-decoration:hover{
   text-decoration: none;
 }
-
+.z-index-1{
+  z-index: 1;
+}
+.btn-brand-secondary{
+  background-color: #f19f30;
+}
+.btn-brand-secondary:hover{
+  background-color: #a61206;
+}
 /*--When MD --*/
 @media (min-width: 992px){
   .w-md-75{
@@ -68,3 +76,30 @@ ul#social-menu li a:hover{
   color:#a61206 !important;
 }
 /*-----/Menu social-----*/
+
+
+
+/*-----Hero-----*/
+.bgimage{
+  height:650px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size:cover;
+  background-attachment: fixed;
+  text-align: center;
+  z-index: 2;
+}
+.bgimage:before{
+  left: 0;
+  top: 0;
+  position: absolute;
+  content:"";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.bgimage h5 {
+  color:white;
+  text-shadow:2px 2px #333;
+}
+/*-----/Hero-----*/
