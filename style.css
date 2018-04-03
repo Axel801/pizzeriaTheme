@@ -15,35 +15,56 @@ Text Domain: lapizzeria
   text-decoration: none;
 }
 
-
-
-
-
+/*--When MD --*/
+@media (min-width: 992px){
+  .w-md-75{
+    width: 75% !important;
+  }
+}
+.bg-brand{
+  background-color:#a61206;
+}
+@media (min-width: 992px){
+  .bg-brand{
+    background-color: #f8f9fa ;
+  }
+}
+.li-color-header-menu{
+  color:#f8f9fa;
+}
+@media (min-width: 992px){
+  .li-color-header-menu{
+    color: #343a40 ;
+  }
+}
 /*-----Menu social-----*/
-ul#menu-social-menu{
+ul#social-menu{
   list-style: none;
 }
-ul#menu-social-menu li a::before{
-font-family: 'FontAwesome';
-font-size: 30px;
+ul#social-menu li a::before{
+  font-family: 'FontAwesome';
+  font-size: 30px;
 }
-ul#menu-social-menu li a[href*="facebook"]::before{
-	content: '\f09a';
-}
-
-ul#menu-social-menu li a[href*="twitter"]::before{
-	content: '\f099';
+ul#social-menu li a[href*="facebook"]::before{
+  content: '\f09a';
 }
 
-ul#menu-social-menu li a[href*="pinterest"]::before{
-	content: '\f231';
+ul#social-menu li a[href*="twitter"]::before{
+  content: '\f099';
 }
 
-ul#menu-social-menu li a[href*="youtube"]::before{
-	content: '\f16a';
+ul#social-menu li a[href*="pinterest"]::before{
+  content: '\f231';
 }
 
-ul#menu-social-menu li a[href*="instagram"]::before{
-	content: '\f16d';
+ul#social-menu li a[href*="youtube"]::before{
+  content: '\f16a';
+}
+
+ul#social-menu li a[href*="instagram"]::before{
+  content: '\f16d';
+}
+ul#social-menu li a:hover{
+  color:#a61206 !important;
 }
 /*-----/Menu social-----*/

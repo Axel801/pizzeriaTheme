@@ -24,7 +24,7 @@
 
     <nav class="row align-items-center">
 
-      <div class="col-md-12 col-lg-3 offset-lg-4 text-center">
+      <div class="col-md-12 col-lg-7  text-center text-lg-right">
         <a href="<?php echo esc_url(home_url( '/' )); ?>" class="navbar-brand ">
           <?php
           $custom_logo_id = get_theme_mod( 'custom_logo' );
@@ -40,9 +40,7 @@
         $args = array(
           'theme_location'=>'social-menu',
           'menu_class'=> 'text-center text-lg-right list-inline align-self-center px-0',
-          'container'=>'',
-          'container_class'=>'',
-          'container_id'=> '',
+          'menu_id'=>'social-menu',
           'link_before'=>'<span class="sr-only">',
           'link_after'=>'</span>'
         );
@@ -50,10 +48,28 @@
         ?>
 
         <div class="address text-center text-lg-right">
-          <p class="h3 lead">Calle Marqués de la Valdavia 76, 3ºB</p>
+          <p class="lead">Calle Marqués de la Valdavia 76, 3ºB</p>
           <p class="h3 lead">Telefono: 605477410</p>
         </div>
       </div>
     </div>
   </nav>
 </header>
+<nav class="navbar navbar-expand-lg navbar-light bg-brand border-top mt-3">
+  <span class="text-uppercase text-white font-weight-bold d-block d-lg-none">MENÚ</span>
+  <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <?php
+  $args = array(
+    'theme_location'=>'header-menu',
+    'menu_class'=> 'text-center navbar-nav w-100 w-md-75 justify-content-around',
+    'container_class'=>'collapse navbar-collapse justify-content-center mt-2 mt-lg-0',
+    'container_id'=> 'navbarNav',
+    'link_before'=>'',
+    'link_after'=>''
+  );
+  wp_nav_menu($args);
+  ?>
+
+</nav>

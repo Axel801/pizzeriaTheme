@@ -56,18 +56,40 @@ function alpt_menus(){
 
 }
 
+
+
+
+
+
+
+
+
+
+
+//Modificaciones para Bootstrap 4
+
 //Add class to 'a' element menu
 add_filter( 'nav_menu_link_attributes', 'alpt_add_class_menu_a', 10, 3 );
 function alpt_add_class_menu_a( $atts, $item, $args ) {
-  $class = 'text-dark no-text-decoration mx-2'; // or something based on $item
-  $atts['class'] = $class;
+  if($args->theme_location == 'social-menu'){
+    $class = 'text-dark no-text-decoration mx-2';
+    $atts['class'] = $class;
+  }
+  if($args->theme_location == 'header-menu'){
+    $class = 'li-color-header-menu no-text-decoration mx-2';
+    $atts['class'] = $class;
+  }
   return $atts;
 }
 //Add class to 'li' element menu
 add_filter('nav_menu_css_class','add_classes_on_li',1,3);
 function add_classes_on_li($classes, $item, $args) {
-  $classes[] = 'list-inline-item';
-  return $classes;
-}
+  if($args->theme_location == 'social-menu'){
+    $classes[] = 'list-inline-item';
+  }
+  if($args->theme_location == 'header-menu'){
+    $classes[] = 'nav-item text-uppercase font-weight-bold my-3';
+  }
+  return $classes;}
 
-?>
+  ?>
