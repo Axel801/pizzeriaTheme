@@ -17,6 +17,21 @@ Text Domain: lapizzeria
 .z-index-1{
   z-index: 1;
 }
+.color-brand{
+  color:#a61206;
+}
+.box-top{
+  position: relative;
+  background-color: #fff;
+  margin-top:25px;
+}
+@media (min-width: 992px){
+  .box-top{
+    margin-top: -90px;
+    padding-top: 60px;
+  }
+}
+
 .btn-brand-secondary{
   background-color: #f19f30;
 }
@@ -45,16 +60,29 @@ Text Domain: lapizzeria
     color: #343a40 ;
   }
 }
+
+
+/*-----Icon Custom Post Type-----*/
+#menu-posts-platos a .wp-menu-image::before{
+  font-family: 'Font Awesome 5 Free';
+  content: "\f094";
+}
+
+
+/*-----/Icon Custom Post Type-----*/
+
+
+
 /*-----Menu social-----*/
 ul#social-menu{
   list-style: none;
 }
 ul#social-menu li a::before{
-  font-family: 'FontAwesome';
+  font-family: 'Font Awesome 5 Brands';
   font-size: 30px;
 }
 ul#social-menu li a[href*="facebook"]::before{
-  content: '\f09a';
+  content: '\f082';
 }
 
 ul#social-menu li a[href*="twitter"]::before{
@@ -66,7 +94,7 @@ ul#social-menu li a[href*="pinterest"]::before{
 }
 
 ul#social-menu li a[href*="youtube"]::before{
-  content: '\f16a';
+  content: '\f167';
 }
 
 ul#social-menu li a[href*="instagram"]::before{
@@ -87,7 +115,6 @@ ul#social-menu li a:hover{
   background-size:cover;
   background-attachment: fixed;
   text-align: center;
-  z-index: 2;
 }
 .bgimage:before{
   left: 0;
@@ -98,8 +125,10 @@ ul#social-menu li a:hover{
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
 }
-.bgimage h5 {
-  color:white;
-  text-shadow:2px 2px #333;
+.bgimage *{
+  z-index: 1
+}
+.bgimage h1{
+  font-size: 48px;
 }
 /*-----/Hero-----*/

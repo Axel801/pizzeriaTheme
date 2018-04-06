@@ -1,7 +1,6 @@
 <?php
 
 add_action( 'after_setup_theme', 'alpt_setup');
-
 function alpt_setup(){
   //Sizes Images
   add_image_size( 'nosotros', 437, 291, true);
@@ -20,12 +19,21 @@ function alpt_setup(){
 }
 
 
-add_action( 'wp_enqueue_scripts', 'alpt_styles');
+add_action( 'admin_enqueue_scripts','alpt_styles_admin' );
+function alpt_styles_admin(){
+  wp_register_style('fontawesome', get_template_directory_uri().'/css/fontawesome-all.css', array(),'5.0.9');
+  wp_register_style('style', get_template_directory_uri().'/style.css', array('fontawesome'),'1.0');
 
+  wp_enqueue_style( 'fontawesome');
+  wp_enqueue_style( 'style');
+
+}
+
+add_action( 'wp_enqueue_scripts', 'alpt_styles');
 function alpt_styles(){
   //Register Styles
   wp_register_style('bootstrap', get_template_directory_uri().'/css/bootstrap.min.css', array(),'4.0.0');
-  wp_register_style('fontawesome', get_template_directory_uri().'/css/font-awesome.css', array(),'4.7.0');
+  wp_register_style('fontawesome', get_template_directory_uri().'/css/fontawesome-all.css', array(),'5.0.9');
   wp_register_style( 'gFonts','https://fonts.googleapis.com/css?family=Open+Sans|Raleway:400,700,900',  array(), '1.0.0');
   wp_register_style('style', get_template_directory_uri().'/style.css', array('bootstrap'),'1.0');
 
@@ -33,7 +41,6 @@ function alpt_styles(){
   wp_enqueue_style( 'fontawesome');
   wp_enqueue_style( 'google_fonts');
   wp_enqueue_style( 'style');
-
 
   //Register JavaScript
 
@@ -56,9 +63,56 @@ function alpt_menus(){
 
 }
 
+add_action( 'init','alpt_customPostTypeEspecialidades');
+function alpt_customPostTypeEspecialidades() {
+  $labels = array(
+    'name'               => _x( 'Platos', 'al_pizzeriaTheme' ),
+    'singular_name'      => _x( 'Platos', 'post type singular name', 'al_pizzeriaTheme' ),
+    'menu_name'          => _x( 'Platos', 'admin menu', 'al_pizzeriaTheme' ),
+    'name_admin_bar'     => _x( 'Platos', 'add new on admin bar', 'al_pizzeriaTheme' ),
+    'add_new'            => _x( 'Añadir nuevo', 'plato', 'al_pizzeriaTheme' ),
+    'add_new_item'       => __( 'Añadir nuevo plato', 'al_pizzeriaTheme' ),
+    'new_item'           => __( 'Nuevo plato', 'al_pizzeriaTheme' ),
+    'edit_item'          => __( 'Modificar lato', 'al_pizzeriaTheme' ),
+    'view_item'          => __( 'Ver plato', 'al_pizzeriaTheme' ),
+    'all_items'          => __( 'Todos los platos', 'al_pizzeriaTheme' ),
+    'search_items'       => __( 'Buscar platos', 'al_pizzeriaTheme' ),
+    'parent_item_colon'  => __( 'Parent Platos:', 'al_pizzeriaTheme' ),
+    'not_found'          => __( 'No hay platos encontrados.', 'al_pizzeriaTheme' ),
+    'not_found_in_trash' => __( 'No hay platos en la papelera', 'al_pizzeriaTheme' )
+  );
 
+  $args = array(
+    'labels'             => $labels,
+    'description'        => __( 'Description.', 'al_pizzeriaTheme' ),
+    'public'             => true,
+    'publicly_queryable' => true,
+    'show_ui'            => true,
+    'show_in_menu'       => true,
+    'query_var'          => true,
+    'rewrite'            => array( 'slug' => 'platos' ),
+    'capability_type'    => 'post',
+    'has_archive'        => true,
+    'hierarchical'       => false,
+    'menu_position'      => 6,
+    'show_in_rest'       => true,
+    'rest_base'          => 'platos',
+    'rest_controller_class' => 'WP_REST_Posts_Controller',
+    'supports'           => array( 'title', 'editor', 'thumbnail' ),
+    'taxonomies'          => array( 'category' ),
+  );
+  register_post_type( 'platos', $args );
+}
 
-
+function fontawesome_icon_dashboard() {
+   // echo "<style type='text/css' media='screen'>
+   // #menu-posts-platos a .wp-menu-image::before{
+   //   font-family: 'Font Awesome 5 Free';
+   //   content: '\f094';
+   //   }
+   //   	</style>";
+ }
+add_action('admin_head', 'fontawesome_icon_dashboard');
 
 
 
