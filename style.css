@@ -34,9 +34,13 @@ Text Domain: lapizzeria
 
 .btn-brand-secondary{
   background-color: #f19f30;
+  color:white;
+  text-decoration: none;
 }
 .btn-brand-secondary:hover{
   background-color: #a61206;
+  color:white;
+  text-decoration: none;
 }
 .btn-brand-primary{
   background-color: #a61206;
@@ -80,8 +84,20 @@ Text Domain: lapizzeria
 
 
 /*-----/Icon Custom Post Type-----*/
+/*-----Header Menu-----*/
 
+/*-----/Header Menu-----*/
 
+ul#menu-header-menu li.current_page_item,
+ul#menu-header-menu li.current_page_parent{
+  border-bottom: 8px solid #a61206
+}
+ul#menu-header-menu li:hover{
+  background-color: #f19f30;
+}
+ul#menu-header-menu li a:hover{
+  color: #343a40;
+}
 
 /*-----Menu social-----*/
 ul#social-menu{
@@ -119,14 +135,16 @@ ul#social-menu li a:hover{
 
 /*-----Hero-----*/
 .bgimage{
-  height:650px;
   background-repeat: no-repeat;
   background-position: center center;
   background-size:cover;
   background-attachment: fixed;
   text-align: center;
 }
-.bgimage:before{
+.hero.bgimage{
+  height:650px;
+}
+.hero.bgimage:before{
   left: 0;
   top: 0;
   position: absolute;
@@ -153,21 +171,8 @@ ul#social-menu li a:hover{
   text-align: center;
 }
 
-.especialidades .col-12:hover .info-plato{
-
-}
-
-@media (min-width: 992px){
-  .especialidades .col-12:hover .info-plato{
-    top:0;
-  }
-}
-.especialidades .col-12 img{
-  position: relative;
-}
-
 .especialidades .col-12 .info-plato{
-  position: absolute;
+  position: static;
   top: 100%;
   height: 100%;
   background-color: rgba(241,159,48,.8);
@@ -178,7 +183,33 @@ ul#social-menu li a:hover{
   text-align: center;
   vertical-align: middle;
   padding:5px 5px;
+  padding-bottom: 18px;
 }
+.especialidades .col-12:hover .info-plato{
+
+}
+
+.especialidades .col-12 img{
+  width: 100%;
+  position: static;
+}
+
+@media (min-width: 992px){
+  .especialidades .col-12:hover .info-plato{
+    top:0;
+  }
+  .especialidades img{
+
+  }
+  .especialidades .col-12 .info-plato{
+    position: relative;
+  }
+  .especialidades .col-12 .info-plato{
+    position: absolute;
+  }
+}
+
+
 
 .especialidades .info-plato h3{
   font-size: 30px;
@@ -191,3 +222,79 @@ ul#social-menu li a:hover{
 }
 
 /*-----/Especialidades FrontPage-----*/
+
+
+/*-----Contenido FrontPage---------*/
+section.contenido-inicio{
+  color:#fff;
+}
+section.contenido-inicio p{
+  line-height: 40px;
+  font-size: 20px;
+
+}
+section.contenido-inicio img{
+  width: 80%;
+}
+
+/*-----/Contenido FrontPage---------*/
+
+
+
+
+/*------Form Reservations---------*/
+.reservations input:not([type="submit"]),
+.reservations textarea{
+  background-color: transparent;
+  border: 4px solid white;
+  color: #ffffff;
+  border-radius: 0px;
+}
+
+.reservations textarea{
+  height: 200px;
+}
+.reservations input:focus,
+.reservations textarea:focus{
+  background-color: transparent;
+  border: 4px solid white;
+  color: #ffffff;
+}
+
+.reservations input[type=datetime-local]{
+  color:#fff!important;
+}
+
+.reservations ::-webkit-input-placeholder{
+  color:#fff !important;
+}
+.reservations ::moz-placeholder{
+  color:#fff !important;
+}
+.reservations ::-ms-placeholder{
+  color:#fff !important;
+}
+
+
+/*------Form Reservations---------*/
+
+/*-----Footer Menu------------*/
+.footer-menu ul{
+  list-style: none;
+}
+.footer-menu ul li:last-child .separador{
+  display: none;
+}
+.footer-menu ul li{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+.footer-menu ul li a{
+  color:#343a40;
+}
+@media (min-width: 992px){
+  .footer-menu ul li a{
+    color:#343a40;
+  }
+}
+/*-----/Footer Menu------------*/

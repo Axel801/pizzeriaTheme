@@ -26,27 +26,11 @@ function initMap() {
 
 $().ready(function(){
 
-  //Mostrar y ocultar menu
-  $('.mobile-menu a').on('click', function(){
-    $('nav.menu-sitio').toggle('slow');
-  });
 
 
-
-  //Resize en la pantalla
   var breakpoint = 768;
-  $(window).resize(function(){
-    ajustarCajas();
-    if($(document).width() >= breakpoint){
-      $('nav.menu-sitio').show();
-    } else {
-      $('nav.menu-sitio').hide();
-    }
-  })
 
 
-  //Ajustar cajas segun tamaño de la imagen
-  ajustarCajas();
 
   //Tamaño de mapa
   var mapa = $('#mapa');
@@ -67,13 +51,13 @@ $().ready(function(){
 
 
   //Fluidbox
-  $('.gallery a').each(function (){
-    $(this).attr({'data-fluidbox':''});
-  });
-
-  if($('[data-fluidbox]').length > 0) {
-    $('[data-fluidbox]').fluidbox();
-  }
+  // $('.gallery a').each(function (){
+  //   $(this).attr({'data-fluidbox':''});
+  // });
+  //
+  // if($('[data-fluidbox]').length > 0) {
+  //   $('[data-fluidbox]').fluidbox();
+  // }
 
 });
 

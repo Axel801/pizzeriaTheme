@@ -55,7 +55,7 @@
     </div>
   </nav>
 </header>
-<nav class="navbar navbar-expand-lg navbar-light bg-brand border-top mt-3">
+<nav class="navbar navbar-expand-lg navbar-light bg-brand border-top mt-3 pb-lg-0">
   <span class="text-uppercase text-white font-weight-bold d-block d-lg-none">MENÚ</span>
   <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -63,8 +63,8 @@
   <?php
   $args = array(
     'theme_location'=>'header-menu',
-    'menu_class'=> 'text-center navbar-nav w-100 w-md-75 justify-content-around',
-    'container_class'=>'collapse navbar-collapse justify-content-center mt-2 mt-lg-0',
+    'menu_class'=> 'text-center navbar-nav w-100 justify-content-center',
+    'container_class'=>'collapse navbar-collapse mt-2 mt-lg-0',
     'container_id'=> 'navbarNav',
     'link_before'=>'',
     'link_after'=>''
