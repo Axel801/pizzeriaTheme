@@ -104,21 +104,6 @@ function alpt_customPostTypeEspecialidades() {
   register_post_type( 'platos', $args );
 }
 
-function fontawesome_icon_dashboard() {
-   // echo "<style type='text/css' media='screen'>
-   // #menu-posts-platos a .wp-menu-image::before{
-   //   font-family: 'Font Awesome 5 Free';
-   //   content: '\f094';
-   //   }
-   //   	</style>";
- }
-add_action('admin_head', 'fontawesome_icon_dashboard');
-
-
-
-
-
-
 
 //Modificaciones para Bootstrap 4
 
