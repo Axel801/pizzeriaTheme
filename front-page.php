@@ -50,13 +50,20 @@
     <?php
     $page = get_page_by_path( 'galeria', $output = OBJECT, $post_type = 'page' );
     $gallery = get_post_gallery( $page->ID, false );
+    $ids = explode(',',$gallery['ids']);
     ?>
-    <?php foreach( $gallery['src'] as $src ) : ?>
 
+    <?php for($i=0;$i<count($ids);$i++): ?>
       <div class="col-12 col-sm-6 col-lg-3 text-center mb-4">
-        <img src="<?php echo $src; ?>" class="img-fluid" alt="Gallery image" />
+        <?php
+        $imageFull = wp_get_attachment_image_src( intval($ids[$i]), 'full' );
+        $imageSmall = wp_get_attachment_image_src( intval($ids[$i]), 'thumbnail' );
+        ?>
+        <a href="<?php echo $imageFull[0]; ?>" data-lightbox="gallery">
+          <img src="<?php echo $imageSmall[0]; ?>" class="img-fluid" alt="Gallery image" />
+        </a>
       </div>
-    <?php endforeach; ?>
+    <?php endfor; ?>
 
 
   </div>
@@ -64,22 +71,22 @@
 
 <section class="container-fluid bgimage mt-4 mb-4" style="background-image:url(<?php echo get_template_directory_uri().'/img/bg-ingredientes.jpg' ?>)">
   <div class="row">
-    <div class="col-12 col-md-6">
-      <h2 class="text-white mt-5">AQUI VA EL MAPA</h2>
+    <div class="col-12 col-md-6" id="map">
+
     </div>
     <div class="col-12 col-md-6">
       <h2 class="mt-5 mb-3 text-white text-center font-weight-bold">Realiza una reserva</h2>
       <form class="reservations pt-3 pr-lg-5">
-          <input type="text" class="mb-3 form-control" name="name" placeholder="Nombre" required>
-          <input type="datetime-local" name="fecha" placeholder="Fecha" required class="mb-3 form-control">
-          <input type="email" class="mb-3 form-control" name="correo" placeholder="Correo" required>
-          <input type="tel" name="telefono" placeholder="Télefono" class="mb-3 form-control" required>
-          <textarea class="mb-3 form-control" name="mensaje" placeholder="Mensaje" required></textarea>
-          <div class="mb-3 g-recaptcha" data-sitekey="6Lc1Uh4UAAAAAJDEU6T1EXn-Wx1mswNu0zc3YtGS"></div>
-          <div class="text-left">
-            <input type="submit" name="enviar" class="mb-3 btn btn-brand-primary btn-lg ">
-          </div>
-          <input type="hidden" value="1" name="oculto">
+        <input type="text" class="mb-3 form-control" name="name" placeholder="Nombre" required>
+        <input type="datetime-local" name="fecha" placeholder="Fecha" required class="mb-3 form-control">
+        <input type="email" class="mb-3 form-control" name="correo" placeholder="Correo" required>
+        <input type="tel" name="telefono" placeholder="Télefono" class="mb-3 form-control" required>
+        <textarea class="mb-3 form-control" name="mensaje" placeholder="Mensaje" required></textarea>
+        <div class="mb-3 g-recaptcha" data-sitekey="6Lc1Uh4UAAAAAJDEU6T1EXn-Wx1mswNu0zc3YtGS"></div>
+        <div class="text-left">
+          <input type="submit" name="enviar" class="mb-3 btn btn-brand-primary btn-lg ">
+        </div>
+        <input type="hidden" value="1" name="oculto">
       </form>
     </div>
   </div>
