@@ -48,8 +48,8 @@
         ?>
 
         <div class="address text-center text-lg-right">
-          <p class="lead">Calle Marqués de la Valdavia 76, 3ºB</p>
-          <p class="h3 lead">Telefono: 605477410</p>
+          <p class="lead"><?php echo esc_html( get_option( 'altp_pizzeria_address' ) ); ?></p>
+          <p class="h3 lead">Telefono: <?php echo esc_html( get_option( 'altp_pizzeria_tel' ) );?></p>
         </div>
       </div>
     </div>

@@ -1,5 +1,8 @@
 <?php
 
+require get_template_directory().'/inc/admin-options.php';
+
+
 add_action( 'after_setup_theme', 'alpt_setup');
 function alpt_setup(){
   //Sizes Images
@@ -23,9 +26,19 @@ add_action( 'admin_enqueue_scripts','alpt_styles_admin' );
 function alpt_styles_admin(){
   wp_register_style('fontawesome', get_template_directory_uri().'/css/fontawesome-all.css', array(),'5.0.9');
   wp_register_style('style', get_template_directory_uri().'/style.css', array('fontawesome'),'1.0');
+  wp_register_style('bootstrap', get_template_directory_uri().'/css/bootstrap.min.css', array(),'4.0.0');
 
+  wp_enqueue_style( 'bootstrap');
   wp_enqueue_style( 'fontawesome');
   wp_enqueue_style( 'style');
+
+  wp_register_script( 'bootrstrapJS', get_template_directory_uri().'/js/bootstrap.min.js',  array('jquery'), '4.0.0', true );
+  wp_register_script( 'scripts', get_template_directory_uri().'/js/scripts.js',  array('bootrstrapJS','jquery'), '1.0.0', true );
+  
+  wp_enqueue_script('jquery' );
+  wp_enqueue_script('bootrstrapJS');
+  wp_enqueue_script('scripts');
+
 
 }
 
