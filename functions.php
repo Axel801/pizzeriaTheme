@@ -26,17 +26,17 @@ add_action( 'admin_enqueue_scripts','alpt_styles_admin' );
 function alpt_styles_admin(){
   wp_register_style('fontawesome', get_template_directory_uri().'/css/fontawesome-all.css', array(),'5.0.9');
   wp_register_style('style', get_template_directory_uri().'/style.css', array('fontawesome'),'1.0');
-  wp_register_style('bootstrap', get_template_directory_uri().'/css/bootstrap.min.css', array(),'4.0.0');
+  //  wp_register_style('bootstrap', get_template_directory_uri().'/css/bootstrap.min.css', array(),'4.0.0');
 
-  wp_enqueue_style( 'bootstrap');
+  //wp_enqueue_style( 'bootstrap');
   wp_enqueue_style( 'fontawesome');
   wp_enqueue_style( 'style');
 
-  wp_register_script( 'bootrstrapJS', get_template_directory_uri().'/js/bootstrap.min.js',  array('jquery'), '4.0.0', true );
+  //wp_register_script( 'bootrstrapJS', get_template_directory_uri().'/js/bootstrap.min.js',  array('jquery'), '4.0.0', true );
   wp_register_script( 'scripts', get_template_directory_uri().'/js/scripts.js',  array('bootrstrapJS','jquery'), '1.0.0', true );
-  
+
   wp_enqueue_script('jquery' );
-  wp_enqueue_script('bootrstrapJS');
+  //wp_enqueue_script('bootrstrapJS');
   wp_enqueue_script('scripts');
 
 
@@ -48,22 +48,50 @@ function alpt_styles(){
   wp_register_style('bootstrap', get_template_directory_uri().'/css/bootstrap.min.css', array(),'4.0.0');
   wp_register_style('fontawesome', get_template_directory_uri().'/css/fontawesome-all.css', array(),'5.0.9');
   wp_register_style( 'gFonts','https://fonts.googleapis.com/css?family=Open+Sans|Raleway:400,700,900',  array(), '1.0.0');
+  wp_register_style('lightbox', get_template_directory_uri().'/css/lightbox.css', array(),'2.10.0');
   wp_register_style('style', get_template_directory_uri().'/style.css', array('bootstrap'),'1.0');
 
   wp_enqueue_style( 'bootstrap');
   wp_enqueue_style( 'fontawesome');
   wp_enqueue_style( 'google_fonts');
+  wp_enqueue_style( 'lightbox');
   wp_enqueue_style( 'style');
 
   //Register JavaScript
 
+  $apiKey = esc_html( get_option( 'altp_pizzeria_gmap_apikey' ) );
+
   wp_register_script( 'bootrstrapJS', get_template_directory_uri().'/js/bootstrap.min.js',  array('jquery'), '4.0.0', true );
+  wp_register_script( 'gMaps', 'https://maps.googleapis.com/maps/api/js?key='.$apiKey.'&callback=initMap', array(), '', true );
+  wp_register_script( 'lightboxJS', get_template_directory_uri().'/js/lightbox.js',  array('jquery'), '2.10.0', true );
   wp_register_script( 'scripts', get_template_directory_uri().'/js/scripts.js',  array('bootrstrapJS','jquery'), '1.0.0', true );
 
   wp_enqueue_script('jquery' );
+  wp_enqueue_script('gMaps');
   wp_enqueue_script('bootrstrapJS');
+  wp_enqueue_script('lightboxJS');
   wp_enqueue_script('scripts');
 
+  //Share WP options to scripts.js
+  wp_localize_script(
+    'scripts',
+    'settings',
+    array(
+      'latitude'=>get_option('altp_pizzeria_gmap_latitude' ),
+      'longitude'=>get_option('altp_pizzeria_gmap_longitude'),
+      'zoom'=>get_option('altp_pizzeria_gmap_zoom')
+    )
+  );
+
+}
+
+//Add Async and Defer gMaps
+add_filter('script_loader_tag','add_async_defer', 10, 2);
+function add_async_defer($tag,$handle){
+  if('gMaps' !== $handle){
+    return $tag;
+  }
+  return str_replace('src','async defer src',$tag);
 }
 
 
