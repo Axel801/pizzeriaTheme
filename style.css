@@ -20,6 +20,9 @@ Text Domain: lapizzeria
 .color-brand{
   color:#a61206;
 }
+.color-brand-secondary{
+  color:#f19f30;
+}
 .box-top{
   position: relative;
   background-color: #fff;
@@ -29,6 +32,7 @@ Text Domain: lapizzeria
   .box-top{
     margin-top: -90px;
     padding-top: 60px;
+    min-height: 90px;
   }
 }
 
@@ -142,7 +146,10 @@ ul#social-menu li a:hover{
   text-align: center;
 }
 .hero.bgimage{
-  height:650px;
+  height:450px;
+}
+.home .hero.bgimage{
+  height: 650px;
 }
 .hero.bgimage:before{
   left: 0;
@@ -298,3 +305,53 @@ section.contenido-inicio img{
   }
 }
 /*-----/Footer Menu------------*/
+
+
+/*-----Common Pages----------*/
+.content-page p{
+  font-size: 18px;
+  line-height: 30px;
+}
+/*-----/Common Pages----------*/
+
+
+/*-----About Us Page-------*/
+.about-us-boxes div:nth-child(2){
+  background-color: #127427;
+}
+
+.about-us-boxes div:nth-child(4){
+  background-color: #f19f30;
+}
+
+.about-us-boxes div:nth-child(6){
+  background-color: #a61206;
+}
+/*-----/About Us Page-------*/
+
+/*------Posts-------------*/
+
+article.post header div.time{
+  font-size: 30px;
+  width: 70px;
+  height: 70px;
+  text-align: center;
+  background-color: #f19f30;
+  font-weight: 700;
+}
+article.post header div.time span{
+  font-size: 16px;
+}
+/*------/Posts-------------*/
+
+
+/*-----Sidebar-----------*/
+.widget label.screen-reader-text{
+  display: none;
+}
+
+form[role='search'] .form-control:focus{
+  border: 1px solid #ced4da;
+  box-shadow: none;
+}
+/*-----/Sidebar-----------*/
