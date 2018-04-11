@@ -56,6 +56,9 @@ Text Domain: lapizzeria
   color:#fff;
 }
 
+.border-0{
+  border:0px;
+}
 /*--When MD --*/
 @media (min-width: 992px){
   .w-md-75{
@@ -353,5 +356,15 @@ article.post header div.time span{
 form[role='search'] .form-control:focus{
   border: 1px solid #ced4da;
   box-shadow: none;
+}
+.widget ul{
+  list-style: none;
+}
+.widget ul li a{
+  color:#f19f30;
+}
+.widget ul li a:hover{
+  font-weight: bold;
+  text-decoration: none;
 }
 /*-----/Sidebar-----------*/

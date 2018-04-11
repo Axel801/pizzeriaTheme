@@ -104,6 +104,18 @@ function alpt_menus(){
 
 }
 
+add_action( 'widgets_init', 'altp_widgets');
+function altp_widgets(){
+  register_sidebar(array(
+    'name'=>'Blog Sidebar',
+    'id'=> 'blog_sidebar',
+    'before_widget'=>'<div class="widget mb-4">',
+    'after_widget'=>'</div>',
+    'before_title'=>'<h3>',
+    'after_title'=>'</h3>'
+  ));
+}
+
 add_action( 'init','alpt_customPostTypeEspecialidades');
 function alpt_customPostTypeEspecialidades() {
   $labels = array(
