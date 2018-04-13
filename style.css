@@ -286,6 +286,45 @@ section.contenido-inicio img{
 }
 
 
+
+div.contact-form{
+  background-image: url(./img/contacto_bg.jpg);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+div.contact-form .reservations textarea{
+  height: 200px;
+}
+div.contact-form  .reservations input:not([type="submit"]),
+div.contact-form  .reservations textarea{
+  background-color: #fff;
+  border: 4px solid #000;
+  color: #000;
+  border-radius: 0px;
+}
+
+div.contact-form .reservations input:focus,
+div.contact-form .reservations textarea:focus{
+  background-color: transparent;
+  border: 4px solid #000;
+  color: #000000;
+}
+
+div.contact-form .reservations input[type=datetime-local]{
+  color:#000!important;
+}
+
+div.contact-form .reservations ::-webkit-input-placeholder{
+  color:#000 !important;
+}
+div.contact-form .reservations ::moz-placeholder{
+  color:#000 !important;
+}
+div.contact-form .reservations ::-ms-placeholder{
+  color:#000 !important;
+}
+
+
 /*------Form Reservations---------*/
 
 /*-----Footer Menu------------*/
