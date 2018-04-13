@@ -1,6 +1,7 @@
 <?php
 
 require get_template_directory().'/inc/admin-options.php';
+require get_template_directory().'/inc/shortcodes.php';
 
 
 add_action( 'after_setup_theme', 'alpt_setup');
@@ -182,6 +183,7 @@ function add_classes_on_li($classes, $item, $args) {
   if($args->theme_location == 'header-menu'){
     $classes[] = 'nav-item text-uppercase font-weight-bold py-3 px-5';
   }
-  return $classes;}
+  return $classes;
+}
 
   ?>
