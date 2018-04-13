@@ -48,22 +48,9 @@
   <div class="row">
 
     <?php
-    $page = get_page_by_path( 'galeria', $output = OBJECT, $post_type = 'page' );
-    $gallery = get_post_gallery( $page->ID, false );
-    $ids = explode(',',$gallery['ids']);
+    $url = get_page_by_path( 'galeria');
+    echo get_post_gallery( $url->ID );
     ?>
-
-    <?php for($i=0;$i<count($ids);$i++): ?>
-      <div class="col-12 col-sm-6 col-lg-3 text-center mb-4">
-        <?php
-        $imageFull = wp_get_attachment_image_src( intval($ids[$i]), 'full' );
-        $imageSmall = wp_get_attachment_image_src( intval($ids[$i]), 'thumbnail' );
-        ?>
-        <a href="<?php echo $imageFull[0]; ?>" data-lightbox="gallery">
-          <img src="<?php echo $imageSmall[0]; ?>" class="img-fluid" alt="Gallery image" />
-        </a>
-      </div>
-    <?php endfor; ?>
 
 
   </div>

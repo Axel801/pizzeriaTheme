@@ -21,6 +21,9 @@ function initMap() {
 
 $().ready(function(){
   $('.gallery a').each(function (){
-    $(this).attr({'data-lightbox':'galery'});
+    $(this).attr({'data-fluidbox':''});
   });
+  if($('[data-fluidbox]').length > 0){
+    $('[data-fluidbox]').fluidbox();
+  }
 });
