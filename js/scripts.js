@@ -2,7 +2,7 @@ $ = jQuery.noConflict();
 
 var map;
 function initMap() {
-    var latLng = {
+  var latLng = {
     lat:parseFloat(settings.latitude),
     lng:parseFloat(settings.longitude)
   }
@@ -20,9 +20,6 @@ function initMap() {
 }
 
 $().ready(function(){
-  $('.gallery a').each(function (){
-    $(this).attr({'data-fluidbox':''});
-  });
   if($('[data-fluidbox]').length > 0){
     $('[data-fluidbox]').fluidbox();
   }

@@ -345,6 +345,18 @@ article.post header div.time{
 article.post header div.time span{
   font-size: 16px;
 }
+.post-text{
+  font-size: 18px;
+  line-height: 30px;
+}
+.alignright{
+  float:right;
+  margin-left:15px;
+}
+.alignleft{
+  float: left;
+  margin-right: 15px;
+}
 /*------/Posts-------------*/
 
 
