@@ -47,7 +47,7 @@ function altp_gallery_shortcode($atts) {
       $full = $full[0];
       $gallery .= "
       <div class='col-12 col-md-6 col-lg-3 mb-4'>
-        <a href=".$full." data-fluidbox>
+        <a href=".$full." data-lightbox ='gallery'>
           <img src='".$thumbnail."' class='img-fluid'>
         </a>
       </div>

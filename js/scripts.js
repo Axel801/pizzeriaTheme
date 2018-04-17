@@ -20,7 +20,10 @@ function initMap() {
 }
 
 $().ready(function(){
-  if($('[data-fluidbox]').length > 0){
-    $('[data-fluidbox]').fluidbox();
-  }
+  lightbox.option({
+      'showImageNumberLabel':false,
+      'wrapAround': true,
+      'positionFromTop':100
+    })
+
 });
