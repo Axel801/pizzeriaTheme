@@ -3,6 +3,7 @@
   <h2 class="nav-tab-wrapper">
     <a href="?page=pizzeria_settings&tab=theme" class="nav-tab <?php echo $active_tab == 'theme'? 'nav-tab-active':''?>">General Settings</a>
     <a href="?page=pizzeria_settings&tab=gmaps" class="nav-tab <?php echo $active_tab == 'gmaps'? 'nav-tab-active':''?>">Google Maps</a>
+    <a href="?page=pizzeria_settings&tab=gCaptcha" class="nav-tab <?php echo $active_tab == 'gCaptcha'? 'nav-tab-active':''?>">Google Captcha</a>
   </h2>
   <form action="options.php" method="post">
 
@@ -42,6 +43,22 @@
         <tr valign="top">
           <th scope="row">API Key</th>
           <td><input type="text" class="form-control" id="apiKey" placeholder="API Key" name="altp_pizzeria_gmap_apikey" value="<?php echo esc_attr( get_option('altp_pizzeria_gmap_apikey') ) ?>"></td>
+        </tr>
+      </table>
+    <?php } ?>
+
+    <?php if($active_tab =='gCaptcha') {
+      settings_fields( 'altp_pizzeria_gcaptcha' );
+      do_settings_sections( 'altp_pizzeria_gcaptcha' );
+      ?>
+      <table class="form-table">
+        <tr valign="top">
+          <th scope="row">Clave Pública</th>
+          <td><input type="text" class="form-control" id="publicKey" placeholder="Clave Pública" name="altp_pizzeria_public_key" value="<?php echo esc_attr( get_option('altp_pizzeria_public_key') ) ?>"></td>
+        </tr>
+        <tr valign="top">
+          <th scope="row">Clave Secreta</th>
+          <td><input type="text" class="form-control" id="secretKey" placeholder="Clave Secreta" name="altp_pizzeria_secret_key" value="<?php echo esc_attr( get_option('altp_pizzeria_secret_key') ) ?>"></td>
         </tr>
       </table>
     <?php } ?>

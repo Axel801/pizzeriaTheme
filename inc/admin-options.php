@@ -16,6 +16,9 @@ function altp_register_options(){
   register_setting( 'altp_pizzeria_info', 'altp_pizzeria_address' );
   register_setting( 'altp_pizzeria_info', 'altp_pizzeria_tel' );
 
+  register_setting( 'altp_pizzeria_gcaptcha', 'altp_pizzeria_public_key' );
+  register_setting( 'altp_pizzeria_gcaptcha', 'altp_pizzeria_secret_key' );
+
   register_setting( 'altp_pizzeria_gmaps', 'altp_pizzeria_gmap_latitude' );
   register_setting( 'altp_pizzeria_gmaps', 'altp_pizzeria_gmap_longitude' );
   register_setting( 'altp_pizzeria_gmaps', 'altp_pizzeria_gmap_zoom' );
@@ -27,12 +30,18 @@ function altp_pizzeria_menu_settings(){
 
   if(isset($_GET['tab']) && $_GET['tab']== 'gmaps'){
     $active_tab = 'gmaps';
-  }else {
+  }else if(isset($_GET['tab']) && $_GET['tab']== 'gCaptcha'){
+    $active_tab = 'gCaptcha';
+  }
+  else {
     $active_tab = 'theme';
   }
   //Share variable with templates
   include (locate_template( 'admin-parts/theme-settings.php') );
 
+}
+function altp_pizzeria_reservations(){
+  include (locate_template( 'admin-parts/view-reservation-list.php') );
 }
 
 

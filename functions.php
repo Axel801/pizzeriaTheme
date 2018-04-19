@@ -2,6 +2,8 @@
 
 require get_template_directory().'/inc/admin-options.php';
 require get_template_directory().'/inc/shortcodes.php';
+require get_template_directory().'/inc/database-reservations.php';
+require get_template_directory().'/inc/logic-reservations.php';
 
 
 add_action( 'after_setup_theme', 'alpt_setup');
@@ -26,19 +28,23 @@ function alpt_setup(){
 add_action( 'admin_enqueue_scripts','alpt_styles_admin' );
 function alpt_styles_admin(){
   wp_register_style('fontawesome', get_template_directory_uri().'/css/fontawesome-all.css', array(),'5.0.9');
+  wp_register_style('sweetAlert', get_template_directory_uri().'/css/sweetalert2.min.css', array(),'7.12.13');
   wp_register_style('style', get_template_directory_uri().'/style.css', array('fontawesome'),'1.0');
-  //  wp_register_style('bootstrap', get_template_directory_uri().'/css/bootstrap.min.css', array(),'4.0.0');
 
-  //wp_enqueue_style( 'bootstrap');
   wp_enqueue_style( 'fontawesome');
+  wp_enqueue_style( 'sweetAlert');
   wp_enqueue_style( 'style');
 
-  //wp_register_script( 'bootrstrapJS', get_template_directory_uri().'/js/bootstrap.min.js',  array('jquery'), '4.0.0', true );
-  wp_register_script( 'scripts', get_template_directory_uri().'/js/scripts.js',  array('bootrstrapJS','jquery'), '1.0.0', true );
 
-  wp_enqueue_script('jquery' );
-  //wp_enqueue_script('bootrstrapJS');
-  wp_enqueue_script('scripts');
+  wp_register_script( 'admin-scripts', get_template_directory_uri().'/js/admin-scripts.js',  array('jquery'), '1.0.0', true );
+  wp_register_script( 'sweetAlertJS', get_template_directory_uri().'/js/sweetalert2.js',  array('jquery'), '1.0.0', true );
+
+  wp_enqueue_script('jquery');
+  wp_enqueue_script('sweetAlertJS');
+  wp_enqueue_script('admin-scripts');
+
+
+  wp_localize_script( 'admin-scripts', 'url_delete', array('ajaxurl'=>admin_url( 'admin-ajax.php')) );
 
 
 }
@@ -66,8 +72,10 @@ function alpt_styles(){
   wp_register_script( 'gMaps', 'https://maps.googleapis.com/maps/api/js?key='.$apiKey.'&callback=initMap', array(), '', true );
   wp_register_script( 'lightboxJS', get_template_directory_uri().'/js/lightbox.js',  array('jquery'), '2.10.0', true );
   wp_register_script( 'scripts', get_template_directory_uri().'/js/scripts.js',  array('bootrstrapJS','jquery'), '1.0.0', true );
+  wp_register_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js',  array(), '2.0', false );
 
   wp_enqueue_script('jquery' );
+  wp_enqueue_script('recaptcha');
   wp_enqueue_script('gMaps');
   wp_enqueue_script('bootrstrapJS');
   wp_enqueue_script('lightboxJS');
