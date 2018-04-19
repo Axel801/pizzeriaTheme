@@ -177,7 +177,7 @@ function alpt_add_class_menu_a( $atts, $item, $args ) {
     $atts['class'] = $class;
   }
   if($args->theme_location == 'header-menu'){
-    $class = 'li-color-header-menu no-text-decoration mx-2 align-middle';
+    $class = 'li-color-header-menu no-text-decoration align-middle';
     $atts['class'] = $class;
   }
   return $atts;

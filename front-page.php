@@ -32,7 +32,7 @@
         <?php the_field('contenido') ?>
         <a class="btn btn-brand-secondary btn-lg " href="<?php echo get_permalink($url->ID); ?>">Leer más</a>
       </div>
-      <div class="col-12 col-md-6">
+      <div class="col-12 col-md-6 mt-3 mt-md-0">
         <?php
         $attachment_id = get_field('imagen');
         $size = "full"; // (thumbnail, medium, large, full or custom size)
@@ -53,7 +53,7 @@
   ?>
 
 
-  
+
 </div>
 
 <section class="container-fluid bgimage mt-4 mb-4" style="background-image:url(<?php echo get_template_directory_uri().'/img/bg-ingredientes.jpg' ?>)">
