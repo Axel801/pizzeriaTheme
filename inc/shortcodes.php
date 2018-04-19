@@ -38,7 +38,7 @@ function altp_gallery_shortcode($atts) {
     if ($args['include'] == "") { $args['orderby'] = 'date'; $args['order'] = 'asc';}
 
     $images = get_posts($args);
-    $gallery .="<div class='row'>";
+    $gallery .="<div class='row text-center'>";
     foreach ( $images as $image ) {
       //print_r($image); /*see available fields*/
       $thumbnail = wp_get_attachment_image_src($image->ID, 'thumbnail');

@@ -45,15 +45,15 @@
 </section>
 <div class="container mt-3">
   <h2 class="text-center color-brand font-weight-bold mb-4">Galería de imagenes</h2>
-  <div class="row">
-
-    <?php
-    $url = get_page_by_path( 'galeria');
-    echo get_post_gallery( $url->ID );
-    ?>
 
 
-  </div>
+  <?php
+  $url = get_page_by_path( 'galeria');
+  echo get_post_gallery( $url->ID );
+  ?>
+
+
+  
 </div>
 
 <section class="container-fluid bgimage mt-4 mb-4" style="background-image:url(<?php echo get_template_directory_uri().'/img/bg-ingredientes.jpg' ?>)">
