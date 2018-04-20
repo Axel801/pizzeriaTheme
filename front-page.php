@@ -15,11 +15,10 @@
     ?>
     <div class="col-12 col-md-12 col-lg-4 mb-4">
       <?php the_post_thumbnail('especialidades_portrait',array('class'=>'img-fluid')) ?>
-      <div class="info-plato text-white">
+      <div class="info-plato text-white d-flex flex-column justify-content-center align-items-center px-3">
         <h3 class="mt-4 mb-4"><?php the_title(  ) ?></h3>
         <p class="mb-2"><?php echo get_the_content() ?></p>
         <p class="precio"><?php the_field('precio') ?></p>
-        <a href="<?php the_permalink() ?>" class="btn btn-lg btn-brand-primary">Leer Más</a>
       </div>
     </div>
   <?php endwhile;wp_reset_postdata(); ?>
@@ -28,7 +27,7 @@
 <section class="contenido-inicio container-fluid bgimage" style="background-image:url(<?php echo get_template_directory_uri().'/img/bg-ingredientes.jpg' ?>)">
   <div class="container">
     <div class="row pt-5 pb-5">
-      <div class="col-12 col-md-6 text-left">
+      <div class="col-12 col-md-6 text-center text-md-left">
         <?php the_field('contenido') ?>
         <a class="btn btn-brand-secondary btn-lg " href="<?php echo get_permalink($url->ID); ?>">Leer más</a>
       </div>
@@ -43,7 +42,7 @@
     </div>
   </div>
 </section>
-<div class="container mt-3">
+<div class="container mt-3 d-none d-md-block">
   <h2 class="text-center color-brand font-weight-bold mb-4">Galería de imagenes</h2>
 
 
@@ -56,9 +55,9 @@
 
 </div>
 
-<section class="container-fluid bgimage mt-4 mb-4" style="background-image:url(<?php echo get_template_directory_uri().'/img/bg-ingredientes.jpg' ?>)">
+<section class="container-fluid bgimage mt-0 mt-md-4 mb-4" style="background-image:url(<?php echo get_template_directory_uri().'/img/bg-ingredientes.jpg' ?>)">
   <div class="row">
-    <div class="col-12 col-md-6" id="map">
+    <div class="col-12 col-md-6 d-none d-md-block" id="map">
 
     </div>
     <div class="col-12 col-md-6">

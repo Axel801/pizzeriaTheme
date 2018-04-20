@@ -184,7 +184,7 @@ ul#social-menu li a:hover{
 .especialidades .col-12 .info-plato{
   position: static;
   top: 100%;
-  height: 100%;
+  height: auto;
   background-color: rgba(241,159,48,.8);
   left: 15px;
   right: 15px;
@@ -207,6 +207,7 @@ ul#social-menu li a:hover{
 @media (min-width: 992px){
   .especialidades .col-12:hover .info-plato{
     top:0;
+    height: 100%;
   }
   .especialidades img{
 
