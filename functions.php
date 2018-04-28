@@ -4,6 +4,7 @@ require get_template_directory().'/inc/admin-options.php';
 require get_template_directory().'/inc/shortcodes.php';
 require get_template_directory().'/inc/database-reservations.php';
 require get_template_directory().'/inc/logic-reservations.php';
+require get_template_directory().'/acf.php';
 
 
 add_action( 'after_setup_theme', 'alpt_setup');
